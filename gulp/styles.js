@@ -9,3 +9,5 @@ gulp.task('styles:dev', function () {
     .pipe($.autoprefixer(config.styles.autoprefixer))
     .pipe(gulp.dest(config.workDirs.dev));
 });
+
+gulp.task('styles:dist',['styles:dev']);

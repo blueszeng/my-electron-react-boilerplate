@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var electronServer = require('electron-connect').server;
 var config = require('./config');
 
-gulp.task('watch:dev', ['html:dev', 'compile:dev:watch', 'styles:dev'], function () {
+gulp.task('dev', ['html:dev', 'compile:dev:watch', 'styles:dev'], function () {
   var electron = electronServer.create();
   electron.start();
 

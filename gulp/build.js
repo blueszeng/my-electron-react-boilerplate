@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
 gulp.task('build', [
-  'html:dev', 'compile:dev', 'styles:dev'
+  'html:dist', 'compile:dist', 'styles:dist'
 ]);
 
 gulp.task('rebuild', ['clean', 'build']);

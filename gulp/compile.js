@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var config = require('./config');
 
-gulp.task('compile:dev', function() {
+gulp.task('compile:dist', function() {
   return gulp.src(config.js.src)
     .pipe($.babel({
       presets: ["es2015", "react"]
