@@ -1,10 +1,11 @@
 My Electron Boilerplate
 ======
 * live reload (electron-connect)
-* React.js and flux
-* Javascript on babel
-* css on stylus
-* task on gulp
+* React.js
+* redux
+* babel
+* stylus
+* gulp
 
 Get Started
 ======
