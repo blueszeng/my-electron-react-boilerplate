@@ -2,16 +2,30 @@
 import types from '../constants/SampleTypes';
 
 const initialState = {
-  count: 0,
-  message: "input some text."
+  isFile: false,
+  isDir: false,
+  data: 'none'
 };
 
 export default function samples(state = initialState, action) {
+  let isFile;
+  let isDir;
+  let data;
   switch (action.type) {
-    case types.SAY_HELLO:
-      let count = state.count + 1;
-      let message = `Hello, ${action.message} (${count} times).`;
-      return Object.assign({}, state, { count, message });
+    case types.GOT_FILE:
+      isFile = true;
+      isDir = false;
+      data = action.data;
+      return Object.assign({}, state, { isFile, isDir, data });
+
+    case types.GOT_DIR:
+      isFile = false;
+      isDir = true;
+      data = action.data;
+      return Object.assign({}, state, { isFile, isDir, data });
+
+    case types.GOT_OTHER:
+      return initialState;
 
     default:
       return state;

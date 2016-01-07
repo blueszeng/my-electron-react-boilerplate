@@ -4,19 +4,33 @@ import React, {Component, PropTypes} from 'react';
 
 class SampleSection extends Component {
 
-  handleSayHello(e) {
-    const message = e.target.value.trim();
-    this.props.actions.sayHello(message);
+  handleOnBlur(e) {
+    const path = e.target.value.trim();
+    this.props.actions.checkPath(path);
   }
 
   render() {
+    let samples = this.props.samples;
+    let fstype;
+
+    if (samples.isDir) {
+      fstype = 'directory';
+    } else if (samples.isFile) {
+      fstype = 'file';
+    } else {
+      fstype = 'other';
+    }
+
     return (
       <div>
-        <h1>{this.props.samples.message}</h1>
         <input
           type="text"
           autoFocus="true"
-          onBlur={this.handleSayHello.bind(this)} />
+          onBlur={this.handleOnBlur.bind(this)} />
+        <h1>{fstype}</h1>
+        <div>
+          {this.props.samples.data}
+        </div>
       </div>
     );
   }
